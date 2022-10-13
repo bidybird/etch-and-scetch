@@ -1,4 +1,4 @@
-const container = document.querySelector("container");
+const container = document.querySelector("#container");
 const bigBoxDiv = document.createElement("div");
 bigBoxDiv.setAttribute("id", "bigBox");
 bigBoxDiv.classList.add("box");
@@ -18,7 +18,7 @@ for (let n = 0; n < boxWidth.length; n++) {
     smallBox = document.createElement("div");
     smallBox.classList.add("smallBox");
 
-    gridDiv.appendChild.smallBox;
+    gridDiv.appendChild(smallBox);
     console.log(i);
   }
 }
