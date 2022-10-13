@@ -7,7 +7,7 @@ const gridDiv = document.createElement("div");
 gridDiv.classList.add("gridDiv");
 gridDiv.setAttribute("id", "grid");
 
-let smallBox = [];
+let smallBox = null;
 
 const boxWidth = [];
 boxWidth.length = 16;
@@ -23,7 +23,6 @@ for (let n = 0; n < boxWidth.length; n++) {
   }
 }
 
-console.log(gridDiv.children);
 console.log(gridDiv);
 console.log(bigBoxDiv);
 bigBoxDiv.appendChild(gridDiv);
