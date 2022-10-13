@@ -1,9 +1,13 @@
 const container = document.querySelector("container");
 const bigBoxDiv = document.createElement("div");
 bigBoxDiv.setAttribute("id", "bigBox");
+bigBoxDiv.classList.add("box");
+
 const gridDiv = document.createElement("div");
+gridDiv.classList.add("gridDiv");
 gridDiv.setAttribute("id", "grid");
-let smallBox = null;
+
+let smallBox = [];
 
 const boxWidth = [];
 boxWidth.length = 16;
@@ -12,7 +16,16 @@ boxWidth.length = 16;
 for (let n = 0; n < boxWidth.length; n++) {
   for (let i = 0; i < boxWidth.length; i++) {
     smallBox = document.createElement("div");
+    smallBox.classList.add("smallBox");
+
     gridDiv.appendChild.smallBox;
     console.log(i);
   }
 }
+
+console.log(gridDiv.children);
+console.log(gridDiv);
+console.log(bigBoxDiv);
+bigBoxDiv.appendChild(gridDiv);
+container.appendChild(bigBoxDiv);
+console.log(container);
