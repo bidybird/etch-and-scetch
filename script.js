@@ -14,9 +14,10 @@ let mainValue = 16;
 
 adjustGrid(mainValue);
 
-function adjustGrid(columns) {
-  for (let n = 0; n < columns; n++) {
-    for (let i = 0; i < columns; i++) {
+function adjustGrid(boxes) {
+  resetColumnAmount(boxes);
+  for (let n = 0; n < boxes; n++) {
+    for (let i = 0; i < boxes; i++) {
       smallBox = document.createElement("div");
       smallBox.classList.add("smallBox");
 
@@ -27,7 +28,7 @@ function adjustGrid(columns) {
   bigBoxDiv.appendChild(gridDiv);
   container.appendChild(bigBoxDiv);
 
-  for (let i = 0; i < columns * columns; i++) {
+  for (let i = 0; i < boxes * boxes; i++) {
     const allSmallBox = document.querySelectorAll(".smallBox");
     allSmallBox[i].addEventListener("mouseenter", changeBackground);
   }
@@ -37,14 +38,24 @@ const button = document.querySelector("#button");
 button.addEventListener("click", displayPrompt);
 
 function changeBackground(e) {
-  console.log(e);
-  console.log(e.target);
   e.target.style.background = "red";
+}
+
+function resetColumnAmount(columns) {
+  let autoAmount = "auto ";
+  for (let i = 0; i < columns - 1; i++) {
+    autoAmount = autoAmount + "auto ";
+  }
+  console.log(autoAmount);
+  gridDiv.style.gridTemplateColumns = autoAmount;
 }
 
 function displayPrompt() {
   removeAllChildNodes(gridDiv);
-  mainValue = prompt("How many columns and rows do you want?");
+  mainValue = prompt("How many boxes and rows do you want?");
+  while (mainValue > 100 || mainValue < 1) {
+    mainValue = prompt("Enter a number between 0 and 100.");
+  }
   mainValue = Number(mainValue);
   adjustGrid(mainValue);
 }
