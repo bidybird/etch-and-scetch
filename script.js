@@ -19,8 +19,17 @@ for (let n = 0; n < boxWidth.length; n++) {
     smallBox.classList.add("smallBox");
 
     gridDiv.appendChild(smallBox);
-    console.log(i);
   }
+}
+
+const allSmallBox = document.querySelectorAll("div.smallBox");
+
+allSmallBox.forEach((smallBox) => {
+  smallBox.addEventListener("onmouseenter", changeBackground);
+});
+
+function changeBackground(e) {
+  e.style.backgroundColor = "red";
 }
 
 console.log(gridDiv);
