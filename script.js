@@ -24,9 +24,8 @@ for (let n = 0; n < boxWidth.length; n++) {
 }
 console.log(gridDiv);
 
-function changeBackground(box) {
-  console.log(box);
-  box.style.backgroundColor = "red";
+function changeBackground(e) {
+  e.target.style.background = "red";
 }
 
 console.log(gridDiv);
@@ -43,3 +42,5 @@ for (let i = 0; i < boxWidth.length * boxWidth.length; i++) {
 //allSmallBox.forEach((box) => {
 //  box.addEventListener("onmouseenter", changeBackground);
 //});
+const oneBox = document.querySelectorAll(".smallBox");
+oneBox[0].addEventListener("click", changeBackground);
