@@ -35,8 +35,17 @@ for (let i = 0; i < boxWidth.length * boxWidth.length; i++) {
   allSmallBox[i].addEventListener("mouseenter", changeBackground);
 }
 
+const button = document.querySelector("#button");
+button.addEventListener("click", displayPrompt);
+
+let mainValue = 16;
+
 function changeBackground(e) {
   console.log(e);
   console.log(e.target);
   e.target.style.background = "red";
+}
+
+function displayPrompt() {
+  mainValue = prompt("How many columns and rows do you want?");
 }
