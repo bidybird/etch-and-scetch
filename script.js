@@ -6,6 +6,7 @@ bigBoxDiv.classList.add("box");
 const gridDiv = document.createElement("div");
 gridDiv.classList.add("gridDiv");
 gridDiv.setAttribute("id", "grid");
+console.log(gridDiv);
 
 let smallBox = null;
 
@@ -21,15 +22,11 @@ for (let n = 0; n < boxWidth.length; n++) {
     gridDiv.appendChild(smallBox);
   }
 }
+console.log(gridDiv);
 
-const allSmallBox = document.querySelectorAll("div.smallBox");
-
-allSmallBox.forEach((smallBox) => {
-  smallBox.addEventListener("onmouseenter", changeBackground);
-});
-
-function changeBackground(e) {
-  e.style.backgroundColor = "red";
+function changeBackground(box) {
+  console.log(box);
+  box.style.backgroundColor = "red";
 }
 
 console.log(gridDiv);
@@ -37,3 +34,12 @@ console.log(bigBoxDiv);
 bigBoxDiv.appendChild(gridDiv);
 container.appendChild(bigBoxDiv);
 console.log(container);
+
+for (let i = 0; i < boxWidth.length * boxWidth.length; i++) {
+  const allSmallBox = document.querySelectorAll(".smallBox");
+  console.log(allSmallBox[i]);
+}
+
+//allSmallBox.forEach((box) => {
+//  box.addEventListener("onmouseenter", changeBackground);
+//});
