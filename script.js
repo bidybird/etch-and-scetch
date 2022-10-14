@@ -38,7 +38,7 @@ const button = document.querySelector("#button");
 button.addEventListener("click", displayPrompt);
 
 function changeBackground(e) {
-  e.target.style.background = "red";
+  e.target.style.background = "black";
 }
 
 function resetColumnAmount(columns) {
