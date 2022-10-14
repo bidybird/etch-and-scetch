@@ -12,28 +12,22 @@ let smallBox = null;
 
 let mainValue = 16;
 
-//watch(mainValue, adjustGrid);
+adjustGrid(mainValue);
 
-adjustGrid();
-
-function adjustGrid() {
-  for (let n = 0; n < mainValue; n++) {
-    for (let i = 0; i < mainValue; i++) {
+function adjustGrid(columns) {
+  for (let n = 0; n < columns; n++) {
+    for (let i = 0; i < columns; i++) {
       smallBox = document.createElement("div");
       smallBox.classList.add("smallBox");
 
       gridDiv.appendChild(smallBox);
     }
   }
-  console.log(gridDiv);
 
-  console.log(gridDiv);
-  console.log(bigBoxDiv);
   bigBoxDiv.appendChild(gridDiv);
   container.appendChild(bigBoxDiv);
-  console.log(container);
 
-  for (let i = 0; i < mainValue * mainValue; i++) {
+  for (let i = 0; i < columns * columns; i++) {
     const allSmallBox = document.querySelectorAll(".smallBox");
     allSmallBox[i].addEventListener("mouseenter", changeBackground);
   }
@@ -49,6 +43,14 @@ function changeBackground(e) {
 }
 
 function displayPrompt() {
+  removeAllChildNodes(gridDiv);
   mainValue = prompt("How many columns and rows do you want?");
   mainValue = Number(mainValue);
+  adjustGrid(mainValue);
+}
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
 }
