@@ -10,35 +10,37 @@ console.log(gridDiv);
 
 let smallBox = null;
 
-const boxWidth = [];
-boxWidth.length = 16;
+let mainValue = 16;
 
-// this will occur 16 by 16 times 256 times
-for (let n = 0; n < boxWidth.length; n++) {
-  for (let i = 0; i < boxWidth.length; i++) {
-    smallBox = document.createElement("div");
-    smallBox.classList.add("smallBox");
+//watch(mainValue, adjustGrid);
 
-    gridDiv.appendChild(smallBox);
+adjustGrid();
+
+function adjustGrid() {
+  for (let n = 0; n < mainValue; n++) {
+    for (let i = 0; i < mainValue; i++) {
+      smallBox = document.createElement("div");
+      smallBox.classList.add("smallBox");
+
+      gridDiv.appendChild(smallBox);
+    }
   }
-}
-console.log(gridDiv);
+  console.log(gridDiv);
 
-console.log(gridDiv);
-console.log(bigBoxDiv);
-bigBoxDiv.appendChild(gridDiv);
-container.appendChild(bigBoxDiv);
-console.log(container);
+  console.log(gridDiv);
+  console.log(bigBoxDiv);
+  bigBoxDiv.appendChild(gridDiv);
+  container.appendChild(bigBoxDiv);
+  console.log(container);
 
-for (let i = 0; i < boxWidth.length * boxWidth.length; i++) {
-  const allSmallBox = document.querySelectorAll(".smallBox");
-  allSmallBox[i].addEventListener("mouseenter", changeBackground);
+  for (let i = 0; i < mainValue * mainValue; i++) {
+    const allSmallBox = document.querySelectorAll(".smallBox");
+    allSmallBox[i].addEventListener("mouseenter", changeBackground);
+  }
 }
 
 const button = document.querySelector("#button");
 button.addEventListener("click", displayPrompt);
-
-let mainValue = 16;
 
 function changeBackground(e) {
   console.log(e);
@@ -48,4 +50,5 @@ function changeBackground(e) {
 
 function displayPrompt() {
   mainValue = prompt("How many columns and rows do you want?");
+  mainValue = Number(mainValue);
 }
